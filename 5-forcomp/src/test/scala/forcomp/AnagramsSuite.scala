@@ -18,6 +18,15 @@ class AnagramsSuite extends FunSuite  {
     assert(wordOccurrences("abcdaad") === List(('a', 3), ('b', 1), ('c', 1), ('d', 2)))
   }
 
+  test("wordOccurrences capitalized: abcdAAD") {
+    assert(wordOccurrences("abcdAAD") === List(('a', 3), ('b', 1), ('c', 1), ('d', 2)))
+  }
+
+  test("wordOccurrences capitalized with Space: abcdA AD") {
+    assert(wordOccurrences("abcdA AD") === List(('a', 3), ('b', 1), ('c', 1), ('d', 2)))
+  }
+
+
   test("wordOccurrences: Robert") {
     assert(wordOccurrences("Robert") === List(('b', 1), ('e', 1), ('o', 1), ('r', 2), ('t', 1)))
   }

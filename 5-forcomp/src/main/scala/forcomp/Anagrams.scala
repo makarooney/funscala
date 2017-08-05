@@ -34,7 +34,13 @@ object Anagrams {
    *
    *  Note: you must use `groupBy` to implement this method!
    */
-  def wordOccurrences(w: Word): Occurrences = w.groupBy(c => (c, w.count(_ == c))).keys.toList.sortBy(_._1)
+  def wordOccurrences(w: Word): Occurrences = {
+    w.replaceAll("\\s", "")
+      .groupBy(c => (c.toLower, w.count(_.toLower == c.toLower)))
+      .keys
+      .toList
+      .sortBy(_._1)
+  }
 
   /** Converts a sentence into its character occurrence list. */
   def sentenceOccurrences(s: Sentence): Occurrences = ???
